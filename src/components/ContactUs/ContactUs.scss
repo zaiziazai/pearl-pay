@@ -1,0 +1,11 @@
+@import '@fluentui/react/dist/sass/Fabric';
+
+.contactUs {
+    .container {
+        margin: 20px;
+
+        .title {
+            @include ms-fontSize-28;
+        }
+    }
+}

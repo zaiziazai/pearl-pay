@@ -1,0 +1,19 @@
+@import '@fluentui/react/dist/sass/Fabric';
+
+.section{
+    margin: auto 10%;
+    text-align: center;
+    padding: 10px 20px 30px;
+    .headLine {
+        margin: 10px 0 20px;
+        &.standard {
+            @include ms-fontSize-28;
+        }
+        &.major {
+            @include ms-fontSize-32;
+        }
+        &.main{
+            @include ms-fontSize-42;
+        }
+    }
+}
