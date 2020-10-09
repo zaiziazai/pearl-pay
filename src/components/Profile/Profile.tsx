@@ -63,7 +63,7 @@ const Profile = function (props: ProfileProps) {
         <Card.Item>
           <Persona
             text={props.name}
-            secondaryText={props.birthdate.toLocaleDateString()}
+            secondaryText={props.birthdate.toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}
           />
         </Card.Item>
         <Card.Item fill>
