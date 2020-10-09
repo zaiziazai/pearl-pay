@@ -52,7 +52,7 @@ describe("qoutes Reducers", () => {
     const expectedState: QoutesState = {
       errorMessage: errorMessage,
       qoutes: [],
-      status: status.LOADING,
+      status: status.FAILED,
     };
     expect(
       qoutesReducer(undefined, {

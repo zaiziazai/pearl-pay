@@ -54,7 +54,7 @@ describe("profiles Reducers", () => {
     const expectedState: ProfileState = {
       errorMessage: errorMessage,
       profiles: [],
-      status: status.LOADING,
+      status: status.FAILED,
     };
     expect(
       profileReducer(undefined, {
