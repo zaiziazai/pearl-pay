@@ -2,7 +2,7 @@ import {
   PrimaryButton,
   CommandBar,
   IButtonStyles,
-  Spinner
+  Spinner,
 } from "@fluentui/react";
 import React, { RefObject } from "react";
 import Section, { heading } from "./common/Section/Section";
@@ -21,13 +21,6 @@ import { Dispatch } from "redux";
 import { getQoutes } from "./actions/qoutesActions";
 import { toast, ToastContainer } from "react-toastify";
 
-export const mainButtonStyle: IButtonStyles = {
-  root: {
-    width: 315,
-    height: 50,
-  },
-};
-
 export interface StateProps {
   profiles: IProfile[];
   profilesStatus?: status;
@@ -40,7 +33,7 @@ export interface StateProps {
 export interface DispatchProps {
   getProfiles: () => void;
   getQoutes: () => void;
-} 
+}
 
 export interface OwnProps {}
 
@@ -50,10 +43,10 @@ export interface AppState {
   openContactUsModal: boolean;
 }
 export class App extends React.Component<AppProps, AppState> {
-  homeRef:RefObject<HTMLDivElement> = React.createRef();
-  profiles:RefObject<HTMLDivElement> = React.createRef();
-  qoutes:RefObject<HTMLDivElement> = React.createRef();
-  signUp:RefObject<HTMLDivElement> = React.createRef();
+  homeRef: RefObject<HTMLDivElement> = React.createRef();
+  profiles: RefObject<HTMLDivElement> = React.createRef();
+  qoutes: RefObject<HTMLDivElement> = React.createRef();
+  signUp: RefObject<HTMLDivElement> = React.createRef();
 
   constructor(props: AppProps) {
     super(props);
@@ -107,10 +100,30 @@ export class App extends React.Component<AppProps, AppState> {
         <CommandBar
           items={[{ key: "pearlPay", text: "Pearl Pay" }]}
           farItems={[
-            { key: "home", text: "Home", onClick: ()=>this.homeRef.current?.scrollIntoView({behavior: "smooth"}) },
-            { key: "articles", text: "Profiles", onClick: ()=>this.profiles.current?.scrollIntoView({behavior: "smooth"}) },
-            { key: "aboutUs", text: "Qoutes", onClick: ()=>this.qoutes.current?.scrollIntoView({behavior: "smooth"}) },
-            { key: "contactUs", text: "Sign Up", onClick: ()=>this.signUp.current?.scrollIntoView({behavior: "smooth"}) },
+            {
+              key: "home",
+              text: "Home",
+              onClick: () =>
+                this.homeRef.current?.scrollIntoView({ behavior: "smooth" }),
+            },
+            {
+              key: "articles",
+              text: "Profiles",
+              onClick: () =>
+                this.profiles.current?.scrollIntoView({ behavior: "smooth" }),
+            },
+            {
+              key: "aboutUs",
+              text: "Qoutes",
+              onClick: () =>
+                this.qoutes.current?.scrollIntoView({ behavior: "smooth" }),
+            },
+            {
+              key: "contactUs",
+              text: "Sign Up",
+              onClick: () =>
+                this.signUp.current?.scrollIntoView({ behavior: "smooth" }),
+            },
           ]}
         />
         <Section
@@ -133,11 +146,21 @@ export class App extends React.Component<AppProps, AppState> {
             qui sapiente, aspernatur dicta? Ex rerum animi, soluta aut quod,
             esse provident culpa eveniet alias accusamus ut expedita.
           </p>
-          <PrimaryButton
-            text="Contact us"
-            styles={mainButtonStyle}
-            onClick={() => this.setState({ openContactUsModal: true })}
-          />
+
+          <div className="ms-Grid">
+            <div className="ms-Grid-row">
+              <PrimaryButton
+                text="Contact us"
+                className="ms-Grid-col ms-sm12 ms-md12 ms-lg4"
+                styles={{
+                  root: {
+                    height: 50,
+                  },
+                }}
+                onClick={() => this.setState({ openContactUsModal: true })}
+              />
+            </div>
+          </div>
         </Section>
         <Section
           headLine="A Major Heading For this Area Goes Right Here"
@@ -200,7 +223,11 @@ export class App extends React.Component<AppProps, AppState> {
             facilis quod asperiores fuga dolores similique ducimus eius
             cupiditate id nobis eos!
           </p>
-          <SignUp onSubmit={(email)=>{toast.success(email+" is now subscribed to our notifications")}}/>
+          <SignUp
+            onSubmit={(email) => {
+              toast.success(email + " is now subscribed to our notifications");
+            }}
+          />
         </Section>
         <Footer
           socialMedias={[
