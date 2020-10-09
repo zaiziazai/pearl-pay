@@ -9,7 +9,7 @@ import {
 import React from "react";
 import "./ContactUs.scss";
 
-interface ContactUsProps {
+export interface ContactUsProps {
   onDismiss: () => void;
   onSubmit: (emailData: {
     email?: string;
@@ -18,7 +18,7 @@ interface ContactUsProps {
   }) => void;
 }
 
-interface ContactUsState {
+export interface ContactUsState {
   disabled: boolean;
   email?: string;
   body?: string;
@@ -54,7 +54,7 @@ export default class ContactUs extends React.Component<
           <Stack {...columnProps}>
             <div className="title">Contact Us</div>
             <TextField
-              label="Email:"
+              label="Email"
               placeholder="example@email.com"
               onChange={(e, value) => {
                 this.setState(

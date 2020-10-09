@@ -2,11 +2,11 @@ import { TextField, PrimaryButton, Stack } from "@fluentui/react";
 import React from "react";
 import "./SignUp.scss";
 
-interface SignUpProps {
+export interface SignUpProps {
   onSubmit: (email: string) => void;
 }
 
-interface SignUpState {
+export interface SignUpState {
   email: string;
   disabled: boolean;
 }

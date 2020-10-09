@@ -15,7 +15,7 @@ export interface QoutesState {
   status?: status;
   errorMessage?: string
 }
-const initialState: QoutesState = {
+export const initialState: QoutesState = {
   qoutes: [],
 };
 
